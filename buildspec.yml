@@ -15,4 +15,4 @@ phases:
       - quasar build
   post_build:
     commands:
-      - aws s3 sync ./dist/spa $S3_BUCKET
+      - aws s3 sync ./dist/spa s3://brie.aws.everything.moe
