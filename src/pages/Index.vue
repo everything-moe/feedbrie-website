@@ -283,7 +283,19 @@ export default {
     this.$axios
       .get(`https://feedbrie-api.aws.everything.moe/v1/store`)
       .then(res => {
-        this.store = res.data;
+        let data = res.data;
+        let _store = {
+          foods: Object.entries(data["foods"])
+            .map(e => ({ [e[0]]: e[1] }))
+            .sort((a, b) => a[Object.keys(a)].cost - b[Object.keys(b)].cost),
+          items: Object.entries(data["items"])
+            .map(e => ({ [e[0]]: e[1] }))
+            .sort((a, b) => a[Object.keys(a)].cost - b[Object.keys(b)].cost),
+          gifts: Object.entries(data["gifts"])
+            .map(e => ({ [e[0]]: e[1] }))
+            .sort((a, b) => a[Object.keys(a)].cost - b[Object.keys(b)].cost)
+        };
+        this.store = _store;
       })
       .catch(err => {
         this.$q.notify({
