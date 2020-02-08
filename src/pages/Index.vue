@@ -280,20 +280,19 @@ export default {
     };
   },
   mounted() {
+    let mapAndSortByProp = (obj, prop) => {
+      return Object.entries(obj)
+        .map(e => ({ [e[0]]: e[1] }))
+        .sort((a, b) => a[Object.keys(a)][prop] - b[Object.keys(b)][prop]);
+    };
     this.$axios
       .get(`https://feedbrie-api.aws.everything.moe/v1/store`)
       .then(res => {
         let data = res.data;
         let _store = {
-          foods: Object.entries(data["foods"])
-            .map(e => ({ [e[0]]: e[1] }))
-            .sort((a, b) => a[Object.keys(a)].cost - b[Object.keys(b)].cost),
-          items: Object.entries(data["items"])
-            .map(e => ({ [e[0]]: e[1] }))
-            .sort((a, b) => a[Object.keys(a)].cost - b[Object.keys(b)].cost),
-          gifts: Object.entries(data["gifts"])
-            .map(e => ({ [e[0]]: e[1] }))
-            .sort((a, b) => a[Object.keys(a)].cost - b[Object.keys(b)].cost)
+          foods: mapAndSortByProp(data["foods"], "cost"),
+          items: mapAndSortByProp(data["items"], "cost"),
+          gifts: mapAndSortByProp(data["gifts"], "cost")
         };
         this.store = _store;
       })
