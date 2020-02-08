@@ -1,13 +1,27 @@
 <template>
   <q-page class="q-pa-md">
     <div class="column">
-      <div class="row text-h2">Welcome to The Brie Game</div>
-      <div class="row">
-        <img
-          alt="Brie and MsBobber Image"
-          src="~assets/brie_and_ms_bobber.png"
-          width="250px"
-        />
+      <div class="row items-center">
+        <div class="column">
+          <img
+            alt="Brie and MsBobber Image"
+            src="~assets/brie_and_ms_bobber.png"
+            width="250px"
+          />
+        </div>
+        <div class="column">
+          <q-list bordered separator>
+            <div v-for="user in leaderBoard" :key="user">
+              <q-item clickable>
+                <q-item-section>
+                  <q-item-label>
+                    # {{ leaderBoard.indexOf(user) + 1 }} -> {{ user.username }}
+                  </q-item-label>
+                </q-item-section>
+              </q-item>
+            </div>
+          </q-list>
+        </div>
       </div>
     </div>
     <div class="column">
@@ -254,7 +268,8 @@ export default {
           description: ""
         }
       ],
-      store: []
+      store: [],
+      leaderBoard: []
     };
   },
   mounted() {
@@ -267,7 +282,20 @@ export default {
         this.$q.notify({
           color: "negative",
           position: "center",
-          message: `Loading failed: ${err}`,
+          message: `Failed to load store info: ${err}`,
+          icon: "report_problem"
+        });
+      });
+    this.$axios
+      .get("https://feedbrie-api.aws.everything.moe/v1/leaderboard")
+      .then(res => {
+        this.leaderBoard = res.data;
+      })
+      .catch(err => {
+        this.$q.notify({
+          color: "negative",
+          position: "center",
+          message: `Failed to load Leaderboard: ${err}`,
           icon: "report_problem"
         });
       });
