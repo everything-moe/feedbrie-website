@@ -2,15 +2,6 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          @click="leftDrawerOpen = !leftDrawerOpen"
-          icon="menu"
-          aria-label="Menu"
-        />
-
         <q-toolbar-title>
           Feed Brie!
         </q-toolbar-title>
@@ -19,17 +10,34 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      content-class="bg-grey-1"
-    >
-      <q-list>
-        <q-item-label header class="text-grey-8">Links</q-item-label>
-        <Links v-for="link in links" :key="link.title" v-bind="link" />
-      </q-list>
-    </q-drawer>
+    <q-footer>
+      <q-toolbar>
+        <q-btn
+          type="a"
+          icon="ion-logo-twitch"
+          href="https://www.twitch.tv/bobberwcc"
+          target="_blank"
+        >
+          <q-tooltip>twitch.tv/BobberWCC</q-tooltip>
+        </q-btn>
+        <q-btn
+          type="a"
+          icon="img:statics/icons/discordapp.svg"
+          href="https://discord.gg/bobberwcc"
+          target="_blank"
+        >
+          <q-tooltip class="text-h7">Join the discord!</q-tooltip>
+        </q-btn>
+        <q-btn
+          type="a"
+          icon="ion-logo-github"
+          href="https://github.com/everything-moe/feedbrie-website"
+          target="_blank"
+        >
+          <q-tooltip class="text-h7">View on Github</q-tooltip>
+        </q-btn>
+      </q-toolbar>
+    </q-footer>
 
     <q-page-container>
       <router-view />
@@ -38,33 +46,7 @@
 </template>
 
 <script>
-import Links from "components/Links";
-
 export default {
-  name: "MainLayout",
-
-  components: {
-    Links
-  },
-
-  data() {
-    return {
-      leftDrawerOpen: false,
-      links: [
-        {
-          title: "Twitch",
-          caption: "Watch Bobber's stream",
-          icon: "ion-logo-twitch",
-          link: "https://twitch.tv/bobberwcc"
-        },
-        {
-          title: "Discord",
-          caption: "Come chat!",
-          icon: "chat",
-          link: "https://discord.gg/bobberwcc"
-        }
-      ]
-    };
-  }
+  name: "MainLayout"
 };
 </script>
