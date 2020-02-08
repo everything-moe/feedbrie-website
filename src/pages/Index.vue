@@ -5,7 +5,7 @@
         <div class="4">
           <img
             alt="Brie and MsBobber Image"
-            src="~assets/brie_and_ms_bobber.png"
+            src="~assets/PopBrieEpic.png"
             width="450px"
           />
         </div>
@@ -70,9 +70,12 @@
         <p>
           Your affection level with Brie will help towards completing Bond
           Activities with her! Bond Activities will affect your bond level with
-          Brie, and increase how much she loves you! Everyone's bond level
-          contributes to Brie's total happiness, and once her happiness rank
-          reaches certain levels, some special events may occur...
+          Brie, and increase how much she loves you!
+        </p>
+        <p>
+          Everyone's bond level contributes to Brie's total happiness, and once
+          her happiness rank reaches certain levels, some special events may
+          occur...
         </p>
       </div>
       <div class="column text-h4 items-center">Commands</div>
@@ -100,8 +103,8 @@
           </div>
         </div>
       </div>
-      <div class="row justify-center q-py-lg">
-        <div class="row">
+      <div class="row justify-center">
+        <div class="row q-pb-lg">
           <div class="column items-center">
             <div class="text-h5">Items</div>
             <div class="row">
@@ -127,13 +130,15 @@
             </div>
           </div>
 
-          <div class="column items-center ">
+          <div class="column items-center">
             <div class="text-h5">Gifts</div>
             <div class="row">
-              <p class="q-px-lg">
-                Give Brie gifts! These contribute towards your affection with
-                Brie
-              </p>
+              <div class="column items-center">
+                <p class="q-px-lg">
+                  Give Brie gifts!
+                </p>
+                <p>These contribute towards your affection with Brie</p>
+              </div>
             </div>
             <div class="row">
               <q-list bordered separator>
@@ -155,15 +160,17 @@
             </div>
           </div>
         </div>
-        <div class="row q-py-lg">
+        <div class="row">
           <div class="row">
             <div class="column items-center">
               <div class="row text-h5">Bonding</div>
               <div class="row">
-                <p class="q-px-lg">
-                  Various bonding activities that you can do with Brie, these
-                  will contribute to your bond level
-                </p>
+                <div class="column items-center">
+                  <p class="q-px-lg">
+                    Various bonding activities that you can do with Brie
+                  </p>
+                  <p>these will contribute to your bond level</p>
+                </div>
               </div>
               <div class="row">
                 <q-list bordered separator>
@@ -189,10 +196,13 @@
             <div class="column items-center">
               <div class="text-h5">Foods</div>
               <div class="row">
-                <p class="q-px-lg">
-                  Treats purchased will contribute to Brie's affection with you.
-                  Current foods in season:
-                </p>
+                <div class="column items-center">
+                  <p class="q-px-lg">
+                    Treats purchased will contribute to Brie's affection with
+                    you.
+                  </p>
+                  <p>Current foods in season:</p>
+                </div>
               </div>
               <div class="row">
                 <q-list bordered separator>
@@ -240,11 +250,11 @@ export default {
             "Buy items from the giftshop (you need these for certain bonding activities!)"
         },
         {
-          name: "gift",
+          name: "gift <gift>",
           description: "Give Brie a gift"
         },
         {
-          name: "feed",
+          name: "feed <food>",
           description: "Feed Brie tasty treats, scroll down to see a list"
         },
         {
