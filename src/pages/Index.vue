@@ -113,9 +113,7 @@
                   <q-item clickable>
                     <q-item-section>
                       <q-item-label>
-                        {{
-                          commandPrefix + "buy " + Object.keys(availableItem)
-                        }}
+                        {{ Object.keys(availableItem).toString() }}
                       </q-item-label>
                       <q-item-label caption>
                         Cost:
@@ -143,9 +141,7 @@
                   <q-item clickable>
                     <q-item-section>
                       <q-item-label>
-                        {{
-                          commandPrefix + "gift " + Object.keys(availableGift)
-                        }}
+                        {{ Object.keys(availableGift).toString() }}
                       </q-item-label>
                       <q-item-label caption>
                         Cost:
@@ -207,9 +203,7 @@
                     <q-item clickable>
                       <q-item-section>
                         <q-item-label>
-                          {{
-                            commandPrefix + "feed " + Object.keys(availableFood)
-                          }}
+                          {{ Object.keys(availableFood).toString() }}
                         </q-item-label>
                         <q-item-label caption>
                           Cost:
