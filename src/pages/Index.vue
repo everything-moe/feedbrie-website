@@ -1,16 +1,23 @@
 <template>
   <q-page class="q-pa-md">
-    <div class="column">
-      <div class="row items-center">
-        <div class="column">
+    <div class="col-auto">
+      <div class="row items-center justify-around">
+        <div class="4">
           <img
             alt="Brie and MsBobber Image"
             src="~assets/brie_and_ms_bobber.png"
             width="250px"
           />
         </div>
-        <div class="column">
+        <div class="col-4">
           <q-list bordered separator>
+            <q-item>
+              <q-item-section>
+                <q-item-label class="text-h6">
+                  Leaderboard
+                </q-item-label>
+              </q-item-section>
+            </q-item>
             <div v-for="user in leaderBoard" :key="user">
               <q-item clickable>
                 <q-item-section>
