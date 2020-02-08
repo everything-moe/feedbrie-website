@@ -54,7 +54,7 @@ export default {
         {
           title: "Twitch",
           caption: "Watch Bobber's stream",
-          icon: "live_tv",
+          icon: "ion-logo-twitch",
           link: "https://twitch.tv/bobberwcc"
         },
         {
